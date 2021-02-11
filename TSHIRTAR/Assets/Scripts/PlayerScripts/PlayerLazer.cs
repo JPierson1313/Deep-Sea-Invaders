@@ -7,13 +7,16 @@ public class PlayerLazer : MonoBehaviour
     public PlayerMobileSystem ps; //PlayerMobileSystem script
     public GameObject explosion; //Explosion game object
     ScoreSystemScript ss; //ScoreSystemScript script
-
+    
+    //Getting the variables from both PlayerMobileSystem and ScoreSystemScript
     void Start()
     {
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMobileSystem>();
         ss = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystemScript>();
     }
-
+    
+    //Each of these collisions will have different effects depending on what object the player lazer collides with like if they hit an enemy, 
+    //then you'll score points and destroy the enemy
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Barrier") || collision.gameObject.CompareTag("EnemyLazer"))
