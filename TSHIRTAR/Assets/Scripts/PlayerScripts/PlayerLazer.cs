@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerLazer : MonoBehaviour
 {
-    public PlayerMobileSystem ps;
-    public GameObject explosion;
-    ScoreSystemScript ss;
+    public PlayerMobileSystem ps; //PlayerMobileSystem script
+    public GameObject explosion; //Explosion game object
+    ScoreSystemScript ss; //ScoreSystemScript script
 
-    private void Start()
+    void Start()
     {
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMobileSystem>();
         ss = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystemScript>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Barrier") || collision.gameObject.CompareTag("EnemyLazer"))
         {
