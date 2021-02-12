@@ -6,26 +6,23 @@ using TMPro;
 public class NextWaveSystem : MonoBehaviour
 {
     [Header("Enemy Wave")]
-    public GameObject wave;
+    public GameObject wave;  //Enemy wave used to create the waves
 
     [Header("Player")]
-    public GameObject player;
-    public Transform playerSpawner;
+    public GameObject player; //Player game object
+    public Transform playerSpawner; //Spawner for the player to respawn to when they die
 
     [Header("Barriers")]
-    public GameObject barrier;
-    public Transform barrierSpawner;
+    public GameObject barrier; //Barriers to protect the player from enemy fire
+    public Transform barrierSpawner; //Spawner for the barriers
 
     [Header("Text")]
-    public TextMeshPro waveText;
+    public TextMeshPro waveText; //Text to show you the wave number you are on
 
     [Header("Variables")]
-    public int waveCounter = 1;
-    public float countdownTimer = 2;
-    public bool canStartNextWave = false;
-
-    [Header("Win Screen")]
-    public GameObject winLayout;
+    public int waveCounter = 1; //Counter for the waves
+    public float countdownTimer = 2; //Countdown timer for when to start the next wave
+    public bool canStartNextWave = false; //Boolean to check if we can start the next wave or not
 
     // Update is called once per frame
     void Update()
@@ -55,29 +52,7 @@ public class NextWaveSystem : MonoBehaviour
                     countdownTimer = 2;
                     canStartNextWave = false;
                 }
-
-                //if (waveCounter == 2)
-                //{
-                //    GameObject secondWave = Instantiate(wave2, transform.position, transform.rotation);
-                //    secondWave.transform.SetParent(GameObject.FindGameObjectWithTag("MainGame").transform);
-                //    countdownTimer = 2;
-                //    canStartNextWave = false;
-                //}
-
-                //if (waveCounter == 3)
-                //{
-                //    GameObject thirdWave = Instantiate(wave3, transform.position, transform.rotation);
-                //    thirdWave.transform.SetParent(GameObject.FindGameObjectWithTag("MainGame").transform);
-                //    countdownTimer = 2;
-                //    canStartNextWave = false;
-                //}
             }   
         }
-        //else if(waveCounter > 3)
-        //{
-        //    winLayout.SetActive(true);
-        //    Destroy(GameObject.FindGameObjectWithTag("Player"));
-        //    Destroy(GameObject.FindGameObjectWithTag("Barrier"));
-        //}
     }
 }
