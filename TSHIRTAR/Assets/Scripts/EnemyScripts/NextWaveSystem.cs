@@ -27,6 +27,8 @@ public class NextWaveSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //When canStartNextWave is true, we find and destroy the player and any remaining barriers to start fresh for the next wave
+        //We also show the current wave number the player will be facing next along with starting the countdown timer until you play the next wave and spawn in the needed objects for the wave
         if (canStartNextWave)
         {
             GameObject sub = GameObject.FindGameObjectWithTag("Player");
@@ -37,6 +39,8 @@ public class NextWaveSystem : MonoBehaviour
             waveText.text = "WAVE " + waveCounter.ToString();
 
             countdownTimer -= Time.deltaTime;
+            
+            //Spawning in the player and barrier as well as setting their parents to the Image Target and setting wave text to ""
             if (countdownTimer < 0)
             {
                 GameObject playerSub = Instantiate(player, playerSpawner.position, playerSpawner.rotation);
@@ -44,7 +48,8 @@ public class NextWaveSystem : MonoBehaviour
                 playerSub.transform.SetParent(GameObject.FindGameObjectWithTag("MainGame").transform);
                 barrierGroup.transform.SetParent(GameObject.FindGameObjectWithTag("MainGame").transform);
                 waveText.text = "";
-
+                
+                //Creating the new enemy wave and setting canStartNextWave to false
                 if (waveCounter > 0)
                 {
                     GameObject enemyWave = Instantiate(wave, transform.position, transform.rotation);
