@@ -45,7 +45,7 @@ public class InvaderSystem : MonoBehaviour
                 ms.newCountDownTimerDown -= .046f;
                 animSpeed += .05f;
             }
-            ]//When there is only one invader left, the speeds will be set to a certain amount to make it go as fast as possible while still being able to hit it
+            //When there is only one invader left, the speeds will be set to a certain amount to make it go as fast as possible while still being able to hit it
             else if (ms.numOfInvaders == 1)
             {
                 ms.newCountDownTimerMove = .035f;
